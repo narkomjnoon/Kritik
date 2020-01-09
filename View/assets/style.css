@@ -1,0 +1,769 @@
+/*** ALL  *****************************************************************************************************************************/
+
+@font-face {
+    font-family: 'Corleone';
+    src: url('fonts/OptimusPrinceps.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: 'OptimusPrinceps';
+    font-size: 15px;
+    font-weight: bold;
+}
+body{
+    background-image: url(../image/fond1.png);
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height:100%;
+    background-color: black;
+    overflow:hidden;
+}
+
+
+/**** BARRE NAV ************************************************/
+
+#barre_nav{
+    height: 6rem;
+    width: 100vw;
+    background-color: cornsilk;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    border:solid 3px rgb(131, 19, 19);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    font-family: 'OptimusPrinceps';
+}
+
+
+/**** LOGO *******/
+#logo{
+    padding:1vh 1vw;
+    text-align: center;
+}
+#logo img {
+    height: 5rem;
+    width: 5rem;
+}
+
+/**** STYLE LIENS ****/
+
+.lien_nav{
+    display: flex;
+    list-style: none; 
+    width: 88vw;
+    padding: 0 0.9vw;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+}
+.lien_nav li a{
+    text-decoration: none;
+    color: black;
+    margin: 0 0.7vw;
+    font-family: 'OptimusPrinceps';
+}
+.lien_nav li a:hover {
+    color: rgb(131, 19, 19);
+}
+.lien_nav li {
+    position: relative;
+}
+.lien_nav li a::before {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0%;
+    background-color:rgb(131, 19, 19);
+    position: absolute;
+    transition: all ease-in-out 250ms;
+}
+
+.lien_nav li a:hover::before{
+    width: 80%;
+}
+
+/**** BARRE NAV DROPDOWN ************************************************/
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover, .dropdown:hover .dropbtn {
+    background-color: cornsilk;
+    
+  }
+  
+  li.dropdown {
+    display: inline-block;
+    
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: cornsilk;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: cornsilk;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+/**** BOUTON CONNEXION / INSCRIPTION ****/
+
+.co-button{
+    background-color: transparent;
+    border: 1.5px solid #f2f5f7;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    margin-left: 2vw;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+.co-button:hover {
+    color: #131418;
+    background-color: #f2f5f7;
+    border:1.5px solid #f2f5f7;
+    transition: all ease-in-out 350ms;
+}
+.inscription-button{
+    color: #131418;
+    background-color: #61DAFB;
+    border: 1.5px solid #61DAFB;
+    border-radius: 2em;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.inscription-button:hover {
+    color: #f2f5f7;
+    background-color: transparent;
+    border:1.5px solid #f2f5f7;
+    transition: all ease-in-out 350ms;
+}
+
+/**** STYLE BURGER ****/
+
+.hamburger div{
+    width: 30px;
+    height:3px;
+    background: rgb(131, 19, 19);
+    margin: 5px;
+    transition: all 0.3s ease;
+    
+}
+.hamburger{
+    display: none;
+}
+
+/**** RESPONSIVE PETITS ECRANS ****/
+
+@media screen and (max-width: 800px){
+    #barre_nav{
+        position: fixed;
+        z-index: 30000;
+        top: 0;
+    }
+    .hamburger{
+        display:block;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+        transition: all 0.7s ease;
+    }
+    .lien_nav{
+
+        
+        
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+        
+    }
+    .lien_nav.open{
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+        background: cornsilk;
+        height: 100vh;
+        width: 100%;
+        
+    }
+    .lien_nav li{
+        opacity: 0;
+    }
+    .lien_nav li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+    }
+    .lien_nav li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+    }
+    .lien_nav li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+    }
+    .lien_nav li:nth-child(4){
+        transition: all 0.5s ease 0.7s;
+    }
+    .lien_nav li:nth-child(5){
+        transition: all 0.5s ease 0.8s;
+    }
+    .lien_nav li:nth-child(6){
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+    .lien_nav li:nth-child(7){
+        transition: all 0.5s ease 1s;
+        margin: 0;
+    }
+    li.fade{
+        opacity: 1;
+    }
+}
+
+/**** ANIMATION BURGER RESPONSIVE ****/
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    transition: all 0.7s ease;
+    width:0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
+/*** PAGE ACCEUIL **************************************************************************************************************************/
+
+#logohome{
+    position: absolute;
+    z-index: 100;
+    top: 60%;
+    left:75%;
+    width: 200px;
+    transform: rotate(45deg);
+}
+
+/**** CAROUSEL ************************************************************/
+
+/* --- start --- this style is constant ---------- */
+@keyframes slider-key-next {
+    0% {left: 100%; }
+    100% {left: 0; }
+  }
+  @keyframes slider-key-left {
+    0% {left: 0; }
+    100% {left: -100%; }
+  }
+  @keyframes slider-key-previous {
+    0% {left: -100%; }
+    100% {left: 0; }
+  }
+  @keyframes slider-key-right {
+    0% {left: 0; }
+    100% {left: 100%; }
+  }
+  .slider {
+    overflow: hidden;
+    position: relative;
+  }
+  .slider > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+  }
+  .slider > ul > li {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  .slider > ul > li.active {visibility: visible; left: 0; }
+  .slider > ul > li.left {animation-name: slider-key-left; }
+  .slider > ul > li.next {animation-name: slider-key-next; }
+  .slider > ul > li.right {animation-name: slider-key-right; }
+  .slider > ul > li.previous {animation-name: slider-key-previous; }
+  /* --- end --- this style is constant ---------- */
+  
+  
+  /* -- your style here -- */
+  .slider {
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    margin-top: 5%;
+  }
+  .slider > button {
+    transition: 5s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #FAFAFA;
+    opacity: 0.5;
+    border: 0;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .slider > button:hover {
+    opacity: 1;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  .slider > button:nth-child(2) {
+    left: 10px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAEAUlEQVR4Xu3dO24UQRCAYftYcAGfABFa4nUciDEcgQCJOwAShCBE7hMACY+A7mAly7K9NdNd1fX4LU0A9M5M1/8x3iUwpyd8lZ7Aaends/kTABRHAAAAFJ9A8e3zBABA8QkU3z5PAAAUn0Dx7fMEAEDxCRTfPk8AAJSdwOO282/teF92Am3jVZ8Az9reX7bjVzvOKiOoCOAQ//AXvzSCagCuxy+PoBKA2+KXRlAFwLH4ZRFUACCNXxJBdgBb419FcK/94kv2j4iZAeyN35u/bcfDdvwBQMwJEF/YLeMTgPjC+H1ZNgDE3xA/GwDib4yfCQDxd8TPAoD4O+NnAED8gfjRARB/MH5kAMSfED8qAOJPih8RAPEnxo8GgPiT40cCQHyF+FEAEF8pfgQAxFeM7x0A8ZXjewZAfIP4XgEQ3yi+RwDEN4zvDQDxjeN7AkD8BfG9ACD+ovgeABB/YfzVAIi/OP5KAMR3EH8VAOI7ib8CAPEdxbcGQHxn8S0BEN9hfCsAxHca3wIA8R3H1wZAfOfxNQEQP0B8LQDEDxJfAwDxA8WfDYD4weLPBED8gPFnARiJ/6ndxIt2/As6P6+3/aHd2KXk5kZ/RtBIfMn9sWbfBB60l72RvHQEAPElE16zRh0A8deElV5VFQDxpRnWrVMDQPx1UbdcGQBbppVwrRqAPqun7bhIOLRMW1IF0Af1pB2vMk0s2V7UAfR59f92rSMY+SiZbO5utmMCoO/2UTteg8BN+MONmAEYRfC5neB5O/66G2HsG/rYbt/kn4IPYxp5ErxrJ+lif8eeecy7n/n9GwQBDcwEMPrtgCfBAkCzAYBgQcSRS2oAAMFIEePXagEAgXHIvZfTBACCvVUMX6cNAASGMfdcygIACPaUMXqNFQAQGAXdehlLACDYWsdgvTUAEBhE3XKJFQBAsKWQ8tpVAECgHFZ6+pUAQCCtpLhuNQAQKMaVnNoDABBISimt8QIABEqBj53WEwAQHKul8OfeAIBAIfJdp/QIAASGCLwCAIERAs8AQGCAwDsAECgjiAAABIoIogAAgRKCSABAoIAgGgAQTEYQEQAIJiKICgAEkxBEBgCCCQiiAwDBIIIMAEAwgCALABDsRJAJAAh2IMgGAAQbEWQEAIINCLICAIEQQWYAIwh+tBffb8dX4RzDLssOYA+CHv+sHf1n7aX/qgBgC4JS8ftgqgCQICgXvxqAuxCUjF8RwE0IysavCuAqgp+V3vDd9I620nuA6/s/b7/xvcq7/ds+zlQGkP4jnmSDAJBMKfEaACSOK9kaACRTSrwGAInjSrYGAMmUEq8BQOK4kq0BQDKlxGsAkDiuZGsAkEwp8RoAJI4r2RoAJFNKvOY/NR8wkHwupfAAAAAASUVORK5CYII=);
+  }
+  .slider > button:nth-child(3) {
+    right: 10px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAEDklEQVR4Xu3cTW5TMRSG4XSAQMASmHUOEkwAiQ0gMWQBIFaAWA8qYgZijFhA1wXnQkPTNsn133GP/b2VPKjqe22f74nj3kg52fAjXYET6dWz+A0AxBEAAADiFRBfPjsAAMQrIL58dgAAiFdAfPnsAAAQr4D48tkBACBegc3mlVXg1NqZYiXUd4Al/J/W7lv7YO2zGgJlANvwH1yE/lsRgSqA6+FvX/hyCBQBHApfEoEagLXw5RAoAUgNXwqBCoAnluq5te2BL/WwP/2ZQAXAXUv8u7U3qcnv9JsagQqAJU8Q7NGvBAAEAPhbAXaCHQhqO8B26SC4qIQqAHYCAPB2sFRAeQfg7QAA/09DsmcCdoDLE7EkAgBc/d9YDgEAbj4ckUIAgP0fDsggAMDhT4ckEADg+MeD0yMAwPrnw1MjAMA6gKkfGwMgDcC0CACQDmBKBADIAzAdAgDkA5gKAQDKAEyDAADlAKZAAIA6AMMjAEA9gKERAKANgGERAKAdgCERAKAtgOEQAKA9gKEQAMAHwDAIAOAHYAgEAPAFEB4BAPwBhEYAgD4AwiIAQD8AIREAoC+AcAgA0B9AKAQAuB0AYRDkAHhks35xe/WacuQ7tqqP1p4VrK7Jt5flAHhrk/xWMFEu8atANQIA+IXT685VCADQKybfcYoRAMA3mJ53L0IAgJ4R+Y+VjQAA/qH0HAEAPasdbKwl/PfWznLmxQ6QU624fZfw31n7kjtFAORWLF7/4vCXpQAgXqA5M6oKPxfA8ij4ec7s6LtageVR8CdrT1d73uxQHX4ugII5csmRCtyzv/2w9rqgSk3CB0BB5RtdEiJ8ADRKM/M2YcIHQGZyDbqHCh8ADRLNuEW48AGQkV5l15DhA6Ay1cTLw4YPgMQEK7qFDh8AFckmXBo+fAAkpFjYZYjwAVCY7splw4QPgPYAhgofAG0BDBc+ANoBGDJ8ALQBMGz4AKgHMHT4AKgDMHz4ACgHMEX4ACgDME34AMgHMFX4AMgDMF34AEgHMGX4AEgDMG34AFgHMHX4ADgOYPrwAXAYgET4ANgPQCZ8ANwEIBU+AK4CkAsfAJcAJMMHwD8AsuEDQDx8dQDSr/ztu1/OV8SsPzcbpwfhX2SlCIDwd16oagAI/9ourQSA8Pe8RasAIPwD5zMVAI9t/efWHmaeU5t9G1fmuN26qwBYCvrS2q8MBNOHr/gcIBWBRPiKAFJ2ApnwVQEcQyAVvjKAfQjkwlcHsIvggf1S9H373Y7rTgMp/RdwqITLwfDU2lenGoe+LQBCx+M/OQD41zj0CAAIHY//5ADgX+PQIwAgdDz+kwOAf41DjwCA0PH4Tw4A/jUOPQIAQsfjPzkA+Nc49AgACB2P/+QA4F/j0CP8AQt1MpCfJsp4AAAAAElFTkSuQmCC);
+  }
+  .slider > ul > li > img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .slider > ul > li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+  .slider > ul > li h1,
+  .slider > ul > li p {
+    position: relative;
+    padding: 0 15%;
+    color: #fff;
+    font-family: sans-serif;
+  }
+  
+
+/*** PAGE FILMS  **************************************************************************************************************************/
+
+
+
+/**** BLOC SECTION LISTE FILM ************************************************************/
+
+.blocsection{
+    display: flex;
+    width: 60%;
+    height: 400px;
+    border: 3px solid cornsilk;
+    border-radius: 20px;
+    background: rgb(241, 232, 202);
+    margin-left: 20%;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: auto;
+    color: cornsilk;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.blocsection .contenu{
+    /* display: block; */
+    width: 100%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow: auto;
+    cursor: default;
+}
+
+/**** ARTICLE **************/
+
+.blocsection .contenu .article a{
+    font-size: 30px;
+    word-spacing: 10px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 0;
+    justify-content: left;
+    font-family: 'Corleone';
+    cursor: pointer;
+    padding-bottom: 20px;
+    background: url(../image/bande1.png) no-repeat right 100%;
+    text-decoration: none;
+}
+
+/**** IMAGE AFFICHE **************/
+
+.blocsection .contenu .article a .affiche{
+    align-content: left;
+    width: 200px;
+    height: auto;
+    padding: 10px 10px;
+}
+
+/**** SCROLL BAR **************/
+
+
+.contenu::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	border-radius: 10px;
+	background-color: #CCCCCC;
+}
+.contenu::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+.contenu::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #D62929;
+	background-image: -webkit-linear-gradient(90deg,
+											  transparent,
+											  rgba(0, 0, 0, 0.4) 50%,
+											  transparent,
+											  transparent)
+}
+
+
+/************************ BLOC SECTION LISTE ACTEURS ***************************************/
+
+.blocsection .contenu .article div a{
+    font-size: 20px;
+    word-spacing: 10px;
+    display: flex;
+    align-items: center;
+    /* width: 100%; */
+    height: 100%;
+    margin-left: 0;
+    justify-content: left;
+    font-family: 'Corleone';
+    cursor: pointer;
+    padding-bottom: 20px;
+    background: unset;
+    text-decoration: none;
+}
+
+/************************  BLOC SECTION LISTE REAL ***************************************/
+
+/**** ARTICLE **************/
+
+.blocsection .contenu .article div{
+    font-size: 20px;
+    word-spacing: 10px;
+    display: flex;
+    align-items: center;
+    /* width: 100%; */
+    height: 100%;
+    margin-left: 0;
+    justify-content: left;
+    font-family: 'Corleone';
+    cursor: pointer;
+    padding-bottom: 20px;
+    background: url(../image/bande1.png) no-repeat right 100%;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+/**** IMAGE AFFICHE **************/
+
+.blocsection .contenu .article div .affiche{
+    align-content: left;
+    width: 200px;
+    height: auto;
+    padding: 10px 10px;
+}
+
+
+/************************  BLOC SECTION LISTE DETAIL ***************************************/
+
+
+.blocsection.detail{
+    height:400px;
+}
+
+.blocsection .contenu h1{
+    text-align: center;
+    font-family: 'Corleone';
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.blocsection .contenu h2{
+    text-align: center;
+    font-family: 'Corleone';
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.blocsection .contenu .affichefilm{
+    margin-left: 30%;
+    width: 200px;
+    height: auto;
+    padding: 10px 10px;
+    width:300px;
+    height:450px;
+}
+
+
+/************************  BLOC SECTION FORMULAIRE ***************************************/
+
+/********** FORMULAIRE *********/
+
+.contact{
+	font: 20px Arial, Helvetica, sans-serif;
+	padding: 16px;
+  background: #F7F7F7;
+  grid-column: 3/8;
+  grid-row: 4/10;
+}
+
+.contact h3{
+	background: rgb(131, 19, 19);
+	padding: 10px 0;
+	font-size: 100%;
+	font-weight: 300;
+	text-align: center;
+	color: #fff;
+	margin: -16px -16px 16px -16px;
+}
+.contact .entree{
+  transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+  width: 100%;
+  height:10%;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: rgb(131, 19, 19);
+  font: 95% Arial, Helvetica, sans-serif;
+  grid-column: 4/8;
+  grid-row: 5/9;
+}
+.contact .entree:focus
+{
+	box-shadow: 0 0 5px rgb(131, 19, 19);
+	padding: 3%;
+	border: 1px solid rgb(131, 19, 19);
+}
+
+.contact input[type="submit"]{
+	box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: rgb(131, 19, 19);
+	border-bottom: 2px solid rgb(131, 19, 19);
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;	
+	color: #fff;
+}
+.contact input[type="submit"]:hover{
+	background: rgb(131, 19, 19);
+}
+
+
+/************************ Ajout films **********************/
+.blocsectionAjout{
+    display: flex;
+    width: 60%;
+    height: 400px;
+    border: 3px solid cornsilk;
+    border-radius: 20px;
+    background: rgb(241, 232, 202);
+    margin-left: 20%;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: auto;
+    color: cornsilk;
+    overflow: hidden;
+    align-content: center;
+}
+
+.blocsectionAjout .contenuAjout{
+    /* display: block; */
+    width: 100%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow: auto;
+    cursor: default;
+}
+
+
+/************************ Inscription **********************/
+
+.blocsectionInsc{
+    display: flex;
+    width: 60%;
+    height: 500px;
+    border: 3px solid cornsilk;
+    border-radius: 20px;
+    background: rgb(241, 232, 202);
+    margin-left: 20%;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: auto;
+    color: cornsilk;
+    overflow: hidden;
+    align-content: center;
+}
+
+.blocsectionInsc .contenuInsc{
+    /* display: block; */
+    width: 100%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow: auto;
+    cursor: default;
+}
+
+
+/************************ Login **********************/
+
+.blocsectionLog{
+    display: flex;
+    width: 60%;
+    height: 500px;
+    border: 3px solid cornsilk;
+    border-radius: 20px;
+    background: rgb(241, 232, 202);
+    margin-left: 20%;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: auto;
+    color: cornsilk;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.blocsectionLog .contenuLog{
+    /* display: block; */
+    width: 100%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow: auto;
+    cursor: default;
+}
+
+@media (max-width: 600px) {
+
+    body{
+    width: 100%;
+    }
+    .blocsection{
+    display: flex;
+    width: 85%;
+    height: 400px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 3px solid cornsilk;
+    border-radius: 20px;
+    background: rgb(241, 232, 202);
+    margin-top: 50%;
+    margin-bottom: auto;
+    color: cornsilk;
+    overflow: hidden;
+    z-index: 10;
+    }
+    
+    .blocsection .contenu{
+    /* display: block; */
+    width: 80%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow: auto;
+    cursor: default;
+    background: unset;
+    }
+    
+    .blocsection .contenu .article div{
+    flex-direction: column;
+    text-align: center;
+    background: unset;
+    
+    }
+    
+    .blocsection .contenu .article a{
+    flex-direction: column;
+    text-align: center;
+    background: unset;
+    
+    }
+    .slider{
+        display: flex;
+        width: 85%;
+        height: 400px;
+        margin-left: 10%;
+        margin-right: 10%;
+        border: 3px solid cornsilk;
+        border-radius: 20px;
+        background: rgb(241, 232, 202);
+        margin-top: 50%;
+        margin-bottom: auto;
+        color: cornsilk;
+        overflow: hidden;
+        z-index: 10;
+        }
+    #logohome{
+        position: absolute;
+        z-index: 100;
+        top: 75%;
+        left:20%;
+        width: 200px;
+        transform: rotate(45deg);
+    }
+    }
+    
